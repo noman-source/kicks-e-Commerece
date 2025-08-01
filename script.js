@@ -1,4 +1,10 @@
 console.log("script.js loaded");
+async function loadNavbar() {
+    let response = await fetch('navbar.html');
+    let data = await response.text();
+    document.querySelector(".nav").innerHTML = data;
+}
+loadNavbar();
 async function multipleImage() {
     let response = await fetch('https://dummyjson.com/products');
     let data = await response.json();
@@ -42,7 +48,13 @@ async function multipleImage() {
     document.querySelector(".section2-left h3").textContent = title;
     document.querySelector(".section2-left p").textContent = description;
 }
-
+try {
+    document.querySelector(".section3-top .btn").addEventListener("click", function () {
+        window.open('listing.html', '_self');
+    });
+} catch (error) {
+    console.log("shop new drops button error");
+}
 async function singleImage(params) {
     await multipleImage();
     let response = await fetch('https://dummyjson.com/products');
@@ -153,7 +165,7 @@ async function generateCards() {
         // console.log(randomImage)
         card_bottom.style.backgroundImage = `url(${randomImage})`;
         // randomProductIndex=randomProductIndex+1;
-        
+
     })
 }
 generateCards();
@@ -165,6 +177,8 @@ var swiper = new Swiper(".mySwiper", {
         delay: 2000,
         disableOnInteraction: false,
     },
-    loop:true,
+    loop: true,
 });
 console.log(swiper)
+
+
