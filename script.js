@@ -169,7 +169,6 @@ async function generateCards() {
     })
 }
 generateCards();
-
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 3,
     spaceBetween: 10,
@@ -179,6 +178,6 @@ var swiper = new Swiper(".mySwiper", {
     },
     loop: true,
 });
-console.log(swiper)
+console.log(swiper);
 
 
